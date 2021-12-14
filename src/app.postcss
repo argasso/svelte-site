@@ -1,0 +1,62 @@
+/* Write your global styles here, in PostCSS syntax */
+
+@import '@fontsource/fira-mono';
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.gradient {
+  background: linear-gradient(90deg, rgba(153, 27, 27) 0%, rgba(153, 67, 67) 100%);
+  background: linear-gradient(90deg, --bg-red-800 50%, rgba(170, 34, 34, 0.8) 100%);
+  background: linear-gradient(90deg, #b91c1c 0%, rgba(153, 27, 27, 0.9));
+  background: rgb(185, 28, 28);
+  background: linear-gradient(90deg, #b91c1c 30%, #b45309 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply leading-tight font-serif;
+}
+
+h1 {
+  @apply text-4xl mt-10 mb-3;
+}
+
+h2 {
+  @apply text-3xl mt-6 mb-2;
+}
+
+h3 {
+  @apply text-2xl mt-3 mb-1;
+}
+
+h4 {
+  @apply text-xl mt-3;
+}
+
+h5 {
+  @apply text-lg italic mt-3;
+}
+
+h6 {
+  @apply text-base italic mt-3;
+}
+
+p {
+  @apply mb-3;
+}
+
+blockquote p:nth-last-child(n + 2) ~ p:last-child {
+  @apply flex align-baseline text-sm font-sans font-bold not-italic;
+}
+
+ul {
+  @apply list-disc list-inside pl-3 mb-3;
+}

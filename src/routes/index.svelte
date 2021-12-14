@@ -1,59 +1,57 @@
 <script context="module" lang="ts">
-	export const prerender = true;
+  export const prerender = true
+
+  import type { Load } from '@sveltejs/kit'
+
+  export const load: Load = async ({ page }) => {
+    try {
+      const indexPage = getIndexPage()
+      return {
+        props: {
+          indexPage,
+        },
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+  import Section from '$lib/Section.svelte'
+  import Hero from '$lib/Hero.svelte'
+  import BookCardBig from '$lib/BookCardBig.svelte'
+  import { getIndexPage, IndexContent } from '$lib/content/loader'
+
+  export let indexPage: IndexContent
+
+  const { data, body, kommande } = indexPage
 </script>
 
 <svelte:head>
-	<title>Home</title>
+  <title>Home</title>
 </svelte:head>
 
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
+<Hero title={data.title} intro={data.intro} />
 
-		to your new<br />SvelteKit app
-	</h1>
+<Section title="Nyheter">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
+    {#each kommande as bok}
+      <BookCardBig text={bok.text} book={bok.data} />
+    {/each}
+  </div>
+</Section>
 
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
+<Section title="Kommande" color="gray">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {#each kommande as bok}
+      <BookCardBig text={bok.text} book={bok.data} />
+    {/each}
+  </div>
+</Section>
 
-	<Counter />
-</section>
+<Section title="Nyheter" />
 
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
+<Section title="Twitter" color="green" />
 
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+<svelte:component this={body} />

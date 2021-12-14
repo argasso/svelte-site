@@ -1,0 +1,22 @@
+import bookCollection from '../cms/collections/bookCollection'
+import { Filter } from './Filter'
+import { FilterParameter } from './FilterParameter'
+import type { BookContent } from '$lib/content/loader'
+import { getObjectField, getSelectField } from '$lib/utils/util'
+export class BookBindingFilter extends Filter<BookContent> {
+  constructor() {
+    const detailsField = getObjectField('generalDetails', bookCollection.fields)
+    const bindingField = getSelectField('binding', detailsField.fields)
+    const title = bindingField?.label || bindingField.name
+    const key = bindingField.name
+    const parameters =
+      bindingField?.options
+        .sort()
+        .map((o) => new FilterParameter(o.toString(), o.toString(), key)) || []
+    super(title, key, parameters)
+  }
+
+  isMatchingItem(item: BookContent, criteria: string): boolean {
+    return item.data.generalDetails?.binding === criteria
+  }
+}
