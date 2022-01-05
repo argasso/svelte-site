@@ -6,7 +6,7 @@ const categoryCollection: Collection = {
   name: 'Category',
   label: 'Kategorier',
   label_singular: 'Kategori',
-  folder: 'src/lib/content/kategorier',
+  folder: 'src/routes',
   extension: 'mdx',
   format: 'frontmatter',
   create: true,

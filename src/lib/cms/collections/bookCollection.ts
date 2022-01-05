@@ -4,7 +4,7 @@ const bookCollection: Collection = {
   name: 'Book',
   label: 'Böcker',
   label_singular: 'Bok',
-  folder: 'src/lib/content/boecker',
+  folder: 'src/routes/bok',
   create: true,
   slug: '{{slug}}',
   media_folder: '{{media_folder}}/boecker',

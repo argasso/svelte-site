@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { h1, h2, h3, h4, blockquote, ul, li, img, p } from '$lib/components'
+  import { h1, h2, h3, h4, blockquote, ul, li, img, P } from '$lib/components'
   import KatalogForm from '$lib/components/KatalogForm.svelte'
   export let name: keyof typeof components
   export let children: string | any
@@ -7,7 +7,7 @@
   let array: Array<string | any>
   $: array = children ? [].concat(children) : []
 
-  const components = { h1, h2, h3, h4, blockquote, ul, li, img, p }
+  const components = { h1, h2, h3, h4, blockquote, ul, li, img, p: P }
   components['Components.KatalogForm'] = KatalogForm
   components['KatalogForm'] = KatalogForm
 

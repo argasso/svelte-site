@@ -3,23 +3,24 @@
   export let intro: string
 </script>
 
-<div class=" text-white">
+<div class="gradient text-white">
   <div class="container flex flex-wrap flex-col md:flex-row items-center">
-    <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-      <h1 class="my-4 text-5xl leading-tight font-serif">
-        <div class="uppercase w-full text-lg font-normal font-sans my-4">
+    <div
+      class="flex flex-col w-full md:w-3/5 justify-center items-start text-center md:text-left pr-10">
+      <h1 class="my-4 text-4xl leading-tight font-serif">
+        <div class="uppercase w-full text-xl font-sans font-light my-4 tracking-wide">
           {title}
         </div>
         {intro}
       </h1>
       <a
         href="/boecker"
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline">
+        class="mx-auto lg:mx-0 bg-argasso-100 hover:bg-argasso-200 active:bg-white text-gray-800 font-bold rounded-full my-3 py-4 px-8 shadow-lg focus:shadow-outline">
         Se alla våra böcker
       </a>
     </div>
 
-    <div class="w-full md:w-3/5 p-12 md:p-12 lg:p-12 lg:max-w-xl">
+    <div class="w-full md:w-2/5 p-10 md:p-10 lg:p-10 max-w-sm md:max-w-xs">
       <svg
         class="m-auto"
         xmlns="http://www.w3.org/2000/svg"
@@ -755,7 +756,7 @@
       </svg>
     </div>
   </div>
-  <div class="relative -mt-12 lg:-mt-24">
+  <div class=" -mt-24">
     <svg
       viewBox="0 0 1428 174"
       version="1.1"

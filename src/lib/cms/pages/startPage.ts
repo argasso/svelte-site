@@ -3,7 +3,7 @@ import type { CmsCollectionFile } from 'netlify-cms-core'
 const startPage: CmsCollectionFile = {
   label: 'Startsida',
   name: 'StartPage',
-  file: 'src/lib/content/index.md',
+  file: 'src/routes/_content/index.md',
   fields: [
     { label: 'Title', name: 'title', widget: 'string' },
     { label: 'Intro', name: 'intro', widget: 'string' },
@@ -55,6 +55,7 @@ const startPage: CmsCollectionFile = {
         },
       ],
     },
+    { label: 'Layout', name: 'layout', widget: 'hidden', default: 'startpage' },
   ],
 }
 

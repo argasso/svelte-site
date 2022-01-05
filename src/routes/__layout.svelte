@@ -7,11 +7,8 @@
 
 <Nav />
 
-<main>
+<main class="bg-white min-h-screen">
   <slot />
 </main>
 
 <Footer />
-
-<style>
-</style>

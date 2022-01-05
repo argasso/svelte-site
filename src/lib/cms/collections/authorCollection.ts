@@ -4,7 +4,7 @@ const authorCollection: Collection = {
   name: 'Author',
   label: 'Författare',
   label_singular: 'Författare',
-  folder: 'src/lib/content/foerfattare',
+  folder: 'src/routes/foerfattare',
   create: true,
   slug: '{{slug}}',
   identifier_field: 'name',

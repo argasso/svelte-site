@@ -7,7 +7,7 @@
   let scrollClass = ''
   $: scrollClass =
     scrollY > 0
-      ? 'ease-out bg-red-700 bg-opacity-95 shadow-md backdrop-filter backdrop-blur-sm '
+      ? 'ease-out bg-argasso-700 bg-opacity-95 shadow-md backdrop-filter backdrop-blur-sm '
       : 'gradient'
 </script>
 

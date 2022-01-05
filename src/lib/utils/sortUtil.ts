@@ -1,4 +1,4 @@
-import type { BookContent } from '$lib/content/loader'
+import type { BookThumb } from 'src/types'
 
 const months = [
   'januari',
@@ -21,10 +21,10 @@ export type SortOption<T> = {
   sort: (items: T[]) => T[]
 }
 
-export type BookSortOption = SortOption<BookContent>
+export type BookSortOption = SortOption<BookThumb>
 
-export function parseArgassoDate(book: BookContent): string {
-  const argassoDate = book.data.generalDetails?.publishMonth || ''
+export function parseArgassoDate(book: BookThumb): string {
+  const argassoDate = book.generalDetails?.publishMonth || ''
   const parts = argassoDate.split(' ')
   if (parts.length == 2) {
     const monthIndex = months.indexOf(parts[0])

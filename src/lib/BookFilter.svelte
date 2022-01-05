@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { BookContent } from './content/loader'
-  import H4 from '$lib/components/H4.svelte'
   import type { Filter } from './filter/Filter'
 
   export let filters: Filter<BookContent>[]
@@ -9,11 +8,11 @@
 
 <div>
   <a href="#">Nollställ filter</a>
-  <div className="flex flex-col md:flex-row md:border-b">
+  <div class="flex flex-col md:flex-row md:border-b">
     {#each filters as filter}
-      <div className="block border-b md:border-none py-3">
-        <H4>{filter.title}</H4>
-        <ul className="md:mr-10">
+      <div class="block border-b md:border-none py-3">
+        <h4>{filter.title}</h4>
+        <ul class="md:mr-10">
           <!-- {filter.parameters.map((parameter) => (
                 <BookFilterParameter<T>
                   key={parameter.value}

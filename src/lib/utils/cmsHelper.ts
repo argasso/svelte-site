@@ -24,14 +24,14 @@ export const mdPlugins = []
 
 const components = {
   ...mdxComponents,
-  KatalogForm: (props) => {
-    console.log('cmsHelper (components)', 'props', props)
-    return MdxComponent({ ...props, name: 'KatalogForm' })
-  },
-  'Components.KatalogForm': (props) => {
-    console.log('cmsHelper (components)', 'props', props)
-    return MdxComponent({ ...props, name: 'KatalogForm' })
-  },
+  // KatalogForm: (props) => {
+  //   console.log('cmsHelper (components)', 'props', props)
+  //   return MdxComponent({ ...props, name: 'KatalogForm' })
+  // },
+  // 'Components.KatalogForm': (props) => {
+  //   console.log('cmsHelper (components)', 'props', props)
+  //   return MdxComponent({ ...props, name: 'KatalogForm' })
+  // },
 }
 
 const scope = {

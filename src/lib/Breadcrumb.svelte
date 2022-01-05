@@ -1,27 +1,29 @@
 <script lang="ts">
-  import { parseArgassoDate } from './grid/SortOnDateNewest'
+  import type { Crumb } from './utils/util'
 
-  export let crumbs: {
-    href: string
-    name: string
-  }[] = []
+  export let crumbs: Crumb[] = []
 </script>
 
 <nav aria-label="breadcrumbs">
-  <ol class="flex">
+  <ol role="list" class="flex text-gray-500 py-2 text-sm">
     <li>
       <a href="/">Argasso</a>
     </li>
     {#each crumbs as { href, name }}
-      <li class="breadcrumb-items ml-3 pl-2">
-        <a {href}>{name}</a>
+      <li class="breadcrumb-items">
+        {#if href}
+          <a {href}>{name}</a>
+        {:else}
+          {name}
+        {/if}
       </li>
     {/each}
   </ol>
 </nav>
 
 <style>
-  li.breadcrumb-items {
-    list-style: '/' outside;
+  li + li:before {
+    content: '/';
+    padding: 0 0.5rem;
   }
 </style>

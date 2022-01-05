@@ -3,41 +3,47 @@
 
   import type { Load } from '@sveltejs/kit'
 
-  export const load: Load = async ({ page }) => {
-    try {
-      const indexPage = getIndexPage()
+  export const load: Load = async ({ fetch }) => {
+    const startPage = await getStartPage()
+    const res = await fetch('/index.json')
+    if (startPage && res.ok) {
       return {
         props: {
-          indexPage,
+          body: startPage.default,
+          data: startPage.metadata,
+          ...(await res.json()),
         },
       }
-    } catch (error) {
-      console.error(error)
     }
   }
 </script>
 
 <script lang="ts">
+  import type { SvelteComponent } from 'svelte'
+  import type { BookThumbPromo } from 'src/types'
+  import type { StartPage } from 'src/types/netlify-types'
   import Section from '$lib/Section.svelte'
   import Hero from '$lib/Hero.svelte'
-  import BookCardBig from '$lib/BookCardBig.svelte'
-  import { getIndexPage, IndexContent } from '$lib/content/loader'
+  import BookCardPromo from '$lib/BookCardPromo.svelte'
+  import { getStartPage } from './index.json'
 
-  export let indexPage: IndexContent
+  export let data: StartPage
+  export let body: SvelteComponent
+  export let kommande: BookThumbPromo[]
 
-  const { data, body, kommande } = indexPage
+  const { title, intro } = data
 </script>
 
 <svelte:head>
   <title>Home</title>
 </svelte:head>
 
-<Hero title={data.title} intro={data.intro} />
+<Hero {title} {intro} />
 
 <Section title="Nyheter">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
     {#each kommande as bok}
-      <BookCardBig text={bok.text} book={bok.data} />
+      <BookCardPromo bookThumbPromo={bok} />
     {/each}
   </div>
 </Section>
@@ -45,7 +51,7 @@
 <Section title="Kommande" color="gray">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     {#each kommande as bok}
-      <BookCardBig text={bok.text} book={bok.data} />
+      <BookCardPromo bookThumbPromo={bok} />
     {/each}
   </div>
 </Section>

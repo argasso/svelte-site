@@ -5,7 +5,9 @@
 <script lang="ts">
   import { slide } from 'svelte/transition'
   import type { CategoryContent } from './content/loader'
+
   export let category: CategoryContent
+
   const label = category.data.title
   const children = category.children
 

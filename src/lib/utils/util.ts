@@ -1,3 +1,4 @@
+import type { CategoryContent } from '$lib/content/loader'
 import type {
   CmsField,
   CmsFieldBase,
@@ -42,4 +43,30 @@ export function getSelectField(name: string, fields?: CmsField[]): CmsFieldBase 
 
 export function isFieldMeta(field: CmsField): field is CmsFieldBase & CmsFieldMeta {
   return (field as CmsFieldMeta).meta !== undefined
+}
+
+export type Crumb = {
+  href?: string
+  name: string
+}
+
+export function getCrumbs(category: CategoryContent, name?: string): Crumb[] {
+  const crumbs: Crumb[] = getCategoryCrumbs(category).map((c) => ({
+    href: c.slug,
+    name: c.data.title,
+  }))
+  if (name) {
+    crumbs.push({ name })
+  }
+  return crumbs
+}
+
+function getCategoryCrumbs(category: CategoryContent): CategoryContent[] {
+  if (category.parent) {
+    const c = getCategoryCrumbs(category.parent)
+    c.push(category)
+    return c
+  } else {
+    return [category]
+  }
 }
