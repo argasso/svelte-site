@@ -8,9 +8,9 @@
 
 {#if links.length > 0}
   <div
-    class="w-full mt-5 md:w-auto md:flex-none justify-start p-6 md:p-10 md:py-7 bg-gray-100 rounded shadow-lg">
+    class="w-full md:w-80 bg-gradient-to-b from-gray-200 md:flex-none justify-start p-6 md:p-10 md:py-7 rounded">
     <h2>{title}</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1 ">
       {#each links as link}
         <div class="my-1">
           <Link href={link.href}>

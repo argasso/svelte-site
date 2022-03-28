@@ -15,13 +15,23 @@ export function asArray(value?: string | string[]): string[] {
   return Array.isArray(nonNull) ? nonNull : [nonNull]
 }
 
-export const unSlug = (slug: string): string => {
+export function unSlug(slug: string): string {
   return slug
     .replace(/-/g, ' ')
     .replace(/aa/g, 'å')
     .replace(/ae/g, 'ä')
     .replace(/oe/g, 'ö')
     .replace(/ue/g, 'ü')
+    .toLowerCase()
+}
+
+export function slug(text: string): string {
+  return text
+    .replace(/ /g, '-')
+    .replace(/å/g, 'aa')
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
     .toLowerCase()
 }
 

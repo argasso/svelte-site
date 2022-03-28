@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { createQueryStore } from '$lib/URLSearchParamsStore'
+  import { createQueryStore, createSingleValueQueryStore } from '$lib/URLSearchParamsStore'
   import type { BookSortOption } from '$lib/utils/sortUtil'
 
-  const sort = createQueryStore('sort')
+  const sort = createSingleValueQueryStore('sort')
 
   let className = ''
   export { className as class }

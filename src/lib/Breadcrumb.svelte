@@ -5,14 +5,14 @@
 </script>
 
 <nav aria-label="breadcrumbs">
-  <ol role="list" class="flex text-gray-500 py-2 text-sm">
+  <ol role="list" class="flex text-gray-500 py-2 font-light text-sm">
     <li>
-      <a href="/">Argasso</a>
+      <a sveltekit:prefetch href="/">Argasso</a>
     </li>
     {#each crumbs as { href, name }}
       <li class="breadcrumb-items">
         {#if href}
-          <a {href}>{name}</a>
+          <a sveltekit:prefetch {href}>{name}</a>
         {:else}
           {name}
         {/if}

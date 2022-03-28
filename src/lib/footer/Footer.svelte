@@ -70,95 +70,112 @@
         <div
           class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
           <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-            <label for="footer-field" aria-labelledby="footer-field" class="leading-7 text-sm">
-              E-postadress
-            </label>
-            <input
-              type="text"
-              id="footer-field"
-              name="footer-field"
-              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-red-200 focus:border-red-500 text-base outline-none  py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+            <form
+              id="mc-embedded-subscribe-form"
+              class="validate"
+              action="https://argasso.us18.list-manage.com/subscribe/post?u=77df9b40f7b88d80d2730b6bb&amp;id=b391a49e94"
+              method="post"
+              name="mc-embedded-subscribe-form"
+              target="_blank">
+              <div id="mc_embed_signup_scroll" class="flex">
+                <div style="position: absolute; left: -5000px;">
+                  <input
+                    tabindex="-1"
+                    name="b_77df9b40f7b88d80d2730b6bb_b391a49e94"
+                    type="text"
+                    value="" />
+                </div>
+                <input
+                  id="mce-EMAIL"
+                  class="mr-3 bg-argasso-100 rounded border border-gray-300 focus:bg-white focus:ring-2 focus:ring-red-200 text-base outline-none  py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  name="EMAIL"
+                  type="email"
+                  value=""
+                  placeholder="E-postadress" />
+                <input
+                  id="mc-embedded-subscribe"
+                  class="bg-argasso-100 hover:bg-argasso-200 active:bg-white text-gray-800 font-bold rounded-full py-3 px-8 shadow-lg focus:shadow-outline"
+                  name="subscribe"
+                  type="submit"
+                  value="Prenumerera" />
+              </div>
+            </form>
           </div>
-          <a
-            href="/"
-            class="bg-argasso-100 hover:bg-argasso-200 active:bg-white text-gray-800 font-bold rounded-full py-3 px-8 shadow-lg focus:shadow-outline">
-            Prenumerera
-          </a>
         </div>
       </div>
-    </div>
-    <div class=" text-gray-100 border-t border-red-300 opacity-50">
-      <div class="flex items-center">
-        <a
-          href="/"
-          class="flex title-font font-medium items-center md:justify-start justify-center text-red-200">
-          <Logo class="w-32 h-16" />
-        </a>
-        <div class="text-sm sm:ml-6 sm:mt-0 mt-4 text-red-200">
-          © 2020 Argasso —
+      <div class="w-full text-gray-100 border-t border-red-300 opacity-50">
+        <div class="flex items-center">
           <a
-            href="https://twitter.com/ArgassoBok"
-            rel="noopener noreferrer"
-            class="ml-1 text-red-200"
-            target="_blank">
-            @ArgassoBok
+            href="/"
+            class="flex title-font font-medium items-center md:justify-start justify-center text-red-200">
+            <Logo class="w-32 h-16" />
           </a>
+          <div class="text-sm sm:ml-6 sm:mt-0 mt-4 text-red-200">
+            © 2020 Argasso —
+            <a
+              href="https://twitter.com/ArgassoBok"
+              rel="noopener noreferrer"
+              class="ml-1 text-red-200"
+              target="_blank">
+              @ArgassoBok
+            </a>
+          </div>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a href="https://www.facebook.com/ArgassoBok" class="text-red-200">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-Width="2"
+                class="w-5 h-5"
+                view-box="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg>
+            </a>
+            <a href="https://twitter.com/ArgassoBok" class="ml-3 text-red-200">
+              <svg
+                fill="currentColor"
+                stroke-line-cap="round"
+                stroke-line-join="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                view-box="0 0 24 24">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg>
+            </a>
+            <a href="https://instagram.com/ArgassoBok" class="ml-3 text-red-200">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-line-cap="round"
+                stroke-line-join="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                view-box="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCjJNoRtTFannXnJ9SrYGUAA"
+              class="ml-3 text-red-200">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-line-cap="round"
+                stroke-line-join="round"
+                stroke-width="0"
+                class="w-5 h-5"
+                view-box="0 0 24 24">
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" stroke="none" />
+              </svg>
+            </a>
+          </span>
         </div>
-        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a href="https://www.facebook.com/ArgassoBok" class="text-red-200">
-            <svg
-              fill="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-Width="2"
-              class="w-5 h-5"
-              view-box="0 0 24 24">
-              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-            </svg>
-          </a>
-          <a href="https://twitter.com/ArgassoBok" class="ml-3 text-red-200">
-            <svg
-              fill="currentColor"
-              stroke-line-cap="round"
-              stroke-line-join="round"
-              stroke-width="2"
-              class="w-5 h-5"
-              view-box="0 0 24 24">
-              <path
-                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-            </svg>
-          </a>
-          <a href="https://instagram.com/ArgassoBok" class="ml-3 text-red-200">
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-line-cap="round"
-              stroke-line-join="round"
-              stroke-width="2"
-              class="w-5 h-5"
-              view-box="0 0 24 24">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-            </svg>
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCjJNoRtTFannXnJ9SrYGUAA"
-            class="ml-3 text-red-200">
-            <svg
-              fill="currentColor"
-              stroke="currentColor"
-              stroke-line-cap="round"
-              stroke-line-join="round"
-              stroke-width="0"
-              class="w-5 h-5"
-              view-box="0 0 24 24">
-              <path
-                stroke="none"
-                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-              <circle cx="4" cy="4" r="2" stroke="none" />
-            </svg>
-          </a>
-        </span>
       </div>
     </div>
   </div>

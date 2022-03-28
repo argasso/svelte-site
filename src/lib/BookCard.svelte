@@ -12,7 +12,7 @@
   <Link {href}>
     <img src={image} alt={`Omslag för ${title}`} />
   </Link>
-  <div class="px-3 py-1 h-20">
+  <div class="px-3 py-1 h-20 bg-white">
     <Link {href} class="">
       <h4 class="text-base my-0">{title}</h4>
     </Link>

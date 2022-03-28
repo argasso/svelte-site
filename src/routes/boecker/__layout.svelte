@@ -18,23 +18,28 @@
   import { flip } from 'svelte/animate'
   import { fade, blur } from 'svelte/transition'
   import * as eases from 'svelte/easing'
-  import { BookBindingFilter } from '$lib/filter/BookBindingFilter'
   import { bookSorters } from '$lib/utils/sortUtil'
   import GridSortSelect from '$lib/grid/GridSortSelect.svelte'
   import FilterButton from '$lib/filter/FilterButton.svelte'
   import { getMostSpecificCriteria } from '$lib/filter'
-  import type { BookThumb } from 'src/types'
+  import type { BookThumb, Filter } from 'src/types'
+  import BookFilter from '$lib/filter/BookFilter.svelte'
+  import { createBookFilterStore } from '$lib/stores/bookStore'
 
   export let books: BookThumb[]
-  export let sorter = bookSorters[0]
+  export let filters: Filter[]
+  // export let sorter = bookSorters[0]
 
-  const bookBindingFilter = new BookBindingFilter()
+  // const bookFilters = filters.map((filter) => ({ filter, query: createQueryStore(filter.key) }))
+
+  const bookFilterStore = createBookFilterStore(books, filters)
+  // const bookBindingFilter = new BookBindingFilter()
   //const bookCategoryFilter = new BookCategoryFilter(categories)
-  const filters = [bookBindingFilter]
+  //const filters = [bookBindingFilter]
   let filterOpen = false
   let sorterKey = ''
-  $: sorter = bookSorters.find((sorter) => sorter.key === sorterKey)
-  $: books = sorter ? sorter.sort(books).slice(1) : bookSorters[0].sort(books)
+  //  $: sorter = bookSorters.find((sorter) => sorter.key === sorterKey)
+  //  $: books = sorter ? sorter.sort(books).slice(1) : bookSorters[0].sort(books)
 
   let criterias
   $: criterias = filters
@@ -45,35 +50,39 @@
 <slot />
 
 <div class="container">
-  <div class="border-t pt-10">
-    <div class="flex-auto">
-      <div class="flex gap-3 justify-between items-center py-2">
-        <h3>Böcker</h3>
-        <FilterButton
-          {criterias}
-          class="flex-none inline-flex items-center justify-center uppercase"
-          bind:filterOpen />
-        <GridSortSelect sorters={bookSorters} bind:sorterKey class="hidden md:block" />
-      </div>
+  <div class="flex-auto mt-5 pt-5 border-t">
+    <div class="flex gap-3 justify-between items-center">
+      <h3>Böcker</h3>
+      <FilterButton
+        {criterias}
+        class="lg:hidden flex-none inline-flex items-center justify-center uppercase  text-sm border border-gray-400 py-3 px-4 bg-white"
+        bind:filterOpen />
+      <GridSortSelect sorters={bookSorters} bind:sorterKey class="uppercase text-sm py-3" />
+    </div>
 
-      {#if filterOpen}
-        <div>
-          <!-- <a href="#">Nollställ filter</a> -->
-          <div class="flex flex-col md:flex-row md:border-b">
-            <div class="block border-b md:border-none py-3">
-              <h4>Filter title</h4>
-              <!-- <BookCategorySelect {category} /> -->
-            </div>
-          </div>
-        </div>
-      {/if}
-
-      <!-- <AnimateHeight duration={500} height={filterOpen ? 'auto' : 0}>
+    <!-- <AnimateHeight duration={500} height={filterOpen ? 'auto' : 0}>
           <BookFilter2<T> filters={filters} items={items}></BookFilter2>
         </AnimateHeight> -->
+
+    <div class="flex gap-10 items-start">
+      <div class="flex-none w-52 hidden lg:block">
+        <div>
+          <h4>
+            Filter
+            {#if true}
+              <button on:click={() => bookFilterStore.reset()}>Nollställ filter</button>
+            {/if}
+          </h4>
+        </div>
+        {#each $bookFilterStore.filters as filter}
+          <div class="flex flex-col md:flex-row md:border-b">
+            <BookFilter {filter} />
+          </div>
+        {/each}
+      </div>
       <div
-        class="grid gap-x-3 gap-y-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-items-start py-10">
-        {#each books as bookThumb (bookThumb.href)}
+        class="flex-auto grid gap-x-3 gap-y-10 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-start py-10">
+        {#each $bookFilterStore.books as bookThumb (bookThumb.href)}
           <div animate:flip={{ duration: 500, easing: eases.backOut }} class="self-end">
             <div class="self-end">
               <BookCard {bookThumb} />
@@ -82,5 +91,6 @@
         {/each}
       </div>
     </div>
+    {#if filterOpen}{/if}
   </div>
 </div>

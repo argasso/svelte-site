@@ -11,7 +11,7 @@ export type Slug = {
   slug: string
 }
 
-export type BookThumb = Pick<Book, 'title' | 'image' | 'generalDetails'> & {
+export type BookThumb = Pick<Book, 'title' | 'image' | 'generalDetails' | 'kategori'> & {
   href: string
   authors: LinkInfo[]
 }
@@ -23,6 +23,19 @@ export type BookThumbPromo = BookThumb & {
 export interface LinkInfo {
   href: string
   name: string
+}
+
+export interface Filter {
+  title: string
+  key: string
+  params: FilterParam[]
+}
+
+export interface FilterParam {
+  label: string
+  value: string
+  children: FilterParam[]
+  count?: number
 }
 
 type Typify<T> = { [K in keyof T]: Typify<T[K]> }

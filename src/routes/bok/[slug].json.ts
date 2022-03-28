@@ -47,7 +47,7 @@ export function getBookThumb(slug: string): BookThumb {
 
 export function mapBookThumb(book: Book & Slug): BookThumb {
   const authors = book.author.map((slug) => getAuthorLinkInfo(slug))
-  const { title, image, slug, generalDetails } = book
+  const { title, image, slug, generalDetails, kategori } = book
   const href = `${PATH}/${slug}`
   return {
     title,
@@ -55,6 +55,7 @@ export function mapBookThumb(book: Book & Slug): BookThumb {
     href,
     authors,
     generalDetails,
+    kategori,
   }
 }
 

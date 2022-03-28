@@ -36,7 +36,7 @@
       </div>
       <div class="w-2/3 pl-5 sm:pl-10 ">
         <div class="flex justify-between items-center">
-          <h2 class="text-lg uppercase title-font text-gray-900 tracking-widest my-1">
+          <h2 class="text-xl uppercase title-font text-gray-900 tracking-widest my-1">
             {#each authors as author}
               <Link class="" href={author.href}>
                 {author.name}
@@ -84,13 +84,14 @@
         <h1 class="text-gray-900 text 3xl lg:text-4xl xl:text-5xl title-font font-medium my-3">
           {title}
         </h1>
-        <h3 class="uppercase text-base text-gray-400">
+        <h3 class="uppercase text-base text-gray-500 mb-5">
           {[generalDetails?.binding, generalDetails?.publishMonth]
             .filter((b) => b != null)
             .join(', ')}
         </h3>
 
         <slot />
+
         <div class="flex mx-1 my-5">
           <a
             href={`https://www.bokfynd.nu/${isbn}`}

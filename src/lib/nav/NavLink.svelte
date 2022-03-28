@@ -13,7 +13,7 @@
   $: activeClass = isMatching ? 'mt-1 border-b-4' : 'animate-link'
 </script>
 
-<a {href} class="{className} {activeClass} text-white flex">
+<a sveltekit:prefetch {href} class="{className} {activeClass} text-white flex">
   <span class="my-auto">
     <slot />
   </span>

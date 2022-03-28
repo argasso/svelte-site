@@ -23,12 +23,10 @@
 <div class="container">
   <Breadcrumb crumbs={breadcrumbs} />
 
-  <div class="flex flex-col md:flex-row items-start gap-2">
+  <div class="flex flex-col md:flex-row items-start gap-10">
     <div class="flex-auto">
       <h1>{title}</h1>
-      <div class="max-w-3xl">
-        <slot />
-      </div>
+      <slot />
     </div>
     <LinkList title="Avdelningar" links={categories} />
   </div>

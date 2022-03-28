@@ -26,6 +26,7 @@
   import Hero from '$lib/Hero.svelte'
   import BookCardPromo from '$lib/BookCardPromo.svelte'
   import { getStartPage } from './index.json'
+  import Hero2 from '$lib/Hero2.svelte'
 
   export let data: StartPage
   export let body: SvelteComponent
@@ -38,7 +39,7 @@
   <title>Home</title>
 </svelte:head>
 
-<Hero {title} {intro} />
+<Hero2 {title} {intro} />
 
 <Section title="Nyheter">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
@@ -56,8 +57,6 @@
   </div>
 </Section>
 
-<Section title="Nyheter" />
-
-<Section title="Twitter" color="green" />
+<Section title="Twitter" />
 
 <svelte:component this={body} />
