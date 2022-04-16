@@ -755,8 +755,8 @@
           fill="#9d9cb5" />
       </svg>
     </div> -->
-    <div class="w-full md:w-2/5 pb-10">
-      <img class="object-contain w-52" src="/uploads/argasso-hero.png" />
+    <div class="w-full md:w-2/5 pb-20">
+      <img class="object-contain p-10 md:p-0" src="/uploads/hero.png" />
     </div>
   </div>
   <div class=" -mt-24">
