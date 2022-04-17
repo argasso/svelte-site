@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { BookThumb } from 'src/types'
   import Link from './components/Link.svelte'
+  import Image from './Image.svelte'
 
   export let bookThumb: BookThumb
 
@@ -10,7 +11,7 @@
 <div
   class="mt-auto rounded-md shadow-md overflow-hidden ease-in-out hover:shadow-lg w-40 smx:w-44 mdx:w-40 lgx:w-48">
   <Link {href}>
-    <img data-blink-src={image} alt={`Omslag för ${title}`} />
+    <Image src={image} alt={`Omslag för ${title}`} />
   </Link>
   <div class="px-3 py-1 h-20 bg-white">
     <Link {href} class="">

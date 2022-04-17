@@ -16,8 +16,6 @@ export function createQueryStore(prop: string): Writable<string[]> {
   const value = writable([] as string[])
   let path: string
   let query: URLSearchParams
-  //let subs: Subscriber<string[]>[] = []
-  //const d = derived(page, ($page => $page.query.getAll(prop)))
 
   page.subscribe((p) => {
     path = p.path
@@ -26,29 +24,7 @@ export function createQueryStore(prop: string): Writable<string[]> {
     value.update((prev) => (arrayEquals(prev, next) ? prev : next))
   })
 
-  // const subscribe = (h: Subscriber<string[]>) => {
-  //   return page.subscribe((p) => {
-  //     const query = p.query
-  //     if (query.has(prop)) {
-  //       console.log('subscribe has prop', prop, query.has(prop))
-  //       h(query.getAll(prop))
-  //     } else {
-  //       console.log('subscribe has NOT prop', prop)
-  //       h([])
-  //     }
-  //   })
-  // }
-  // const subscribe = (handler: Subscriber<string[]>) => {
-  //   subs = [...subs, handler] // add handler to the array of subscribers
-  //   handler(value) // call handler with current value
-  //   return () => (subs = subs.filter((sub) => sub !== handler)) // return unsubscribe function
-  // }
-
   const set = (values: string[]) => {
-    // const current = get(value)
-    // if (arrayEquals(current, values)) {
-    //   return
-    // }
     if (arrayEquals(query.getAll(prop), values)) {
       return
     }

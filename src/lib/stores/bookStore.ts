@@ -44,6 +44,7 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
   let query: URLSearchParams
   let path: string
 
+  // console.log('createBookFilterStore')
   const value = calculate(query)
   const { subscribe, set } = writable(value)
 
@@ -51,12 +52,16 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
     path = p.path
     query = p.query
 
+    // console.log('page.subscribe', p, query.toString())
     const value = calculate(query)
     set(value)
   })
 
   function filterBooks(query: URLSearchParams) {
-    return books.filter((book) => filters.every((f) => filter(query, f.key, book)))
+    return books.map((book) => ({
+      ...book,
+      hidden: !filters.every((f) => filter(query, f.key, book)),
+    }))
   }
 
   function appendQuery(key: string, value: string): URLSearchParams {
@@ -67,7 +72,9 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
 
   function calculateCount(key: string, params: FilterParam[]): FilterParam[] {
     return params.map((p) => {
-      const count = filterBooks(appendQuery(key, p.value)).length
+      const count = filterBooks(appendQuery(key, p.value))
+        .filter((b) => !b.hidden)
+        .length.toString()
       if (p.children) {
         const children = calculateCount(key, p.children)
         return { ...p, count, children }
@@ -86,6 +93,7 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
       return { ...f, params }
     })
 
+    // console.log('calculate new filters', f)
     return {
       books: sortedBooks,
       total,

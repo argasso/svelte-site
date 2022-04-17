@@ -7,6 +7,7 @@
   import BookDetails from '$lib/BookDetails.svelte'
   import Link from '$lib/components/Link.svelte'
   import Breadcrumb from '$lib/Breadcrumb.svelte'
+  import Image from '$lib/Image.svelte'
 
   export let title //: string
   export let image //: Book['image']
@@ -32,8 +33,8 @@
   <section class="text-gray-700 body-font overflow-hidden py">
     <div class="mx-auto flex flex-wrap mt-10">
       <div class="w-1/3 sm:w-1/3">
-        <img
-          data-blink-src={image}
+        <Image
+          src={image}
           alt={`Omslag för ${title}`}
           class="h-auto object-contain object-top rounded" />
       </div>

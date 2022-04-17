@@ -1,4 +1,4 @@
-import type { BookThumb, LinkInfo, MdsvexModule, MyRequestHandler, Slug } from 'src/types'
+import type { BookThumb, LinkInfo, MyRequestHandler, Slug } from 'src/types'
 import type { Author } from 'src/types/netlify-types'
 import { allBooks, mapBookThumb } from '../bok/[slug].json'
 

@@ -74,7 +74,10 @@
       <div
         class="flex-auto grid gap-x-3 gap-y-10 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-start py-10">
         {#each $bookFilterStore.books as bookThumb (bookThumb.href)}
-          <div animate:flip={{ duration: 500, easing: eases.backOut }} class="self-end">
+          <div
+            animate:flip={{ duration: 500, easing: eases.backOut }}
+            class="self-end"
+            class:hide={bookThumb.hidden}>
             <div class="self-end">
               <BookCard {bookThumb} />
             </div>
@@ -84,3 +87,9 @@
     </div>
   </div>
 </div>
+
+<style>
+  .hide {
+    display: none;
+  }
+</style>

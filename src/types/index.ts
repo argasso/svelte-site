@@ -14,6 +14,7 @@ export type Slug = {
 export type BookThumb = Pick<Book, 'title' | 'image' | 'generalDetails' | 'kategori'> & {
   href: string
   authors: LinkInfo[]
+  hidden?: boolean
 }
 
 export type BookThumbPromo = BookThumb & {
@@ -35,7 +36,7 @@ export interface FilterParam {
   label: string
   value: string
   children: FilterParam[]
-  count?: number
+  count?: string
 }
 
 type Typify<T> = { [K in keyof T]: Typify<T[K]> }
