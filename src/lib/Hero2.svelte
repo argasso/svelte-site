@@ -756,7 +756,10 @@
       </svg>
     </div> -->
     <div class="w-full md:w-2/5 pb-20">
-      <img class="object-contain p-10 md:p-0" src="/uploads/hero.png" />
+      <img
+        class="object-contain p-10 md:p-0"
+        src="/uploads/hero.png"
+        alt="Bild på böcker från Argasso" />
     </div>
   </div>
   <div class=" -mt-24">

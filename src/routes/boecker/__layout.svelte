@@ -28,19 +28,10 @@
 
   export let books: BookThumb[]
   export let filters: Filter[]
-  // export let sorter = bookSorters[0]
-
-  // const bookFilters = filters.map((filter) => ({ filter, query: createQueryStore(filter.key) }))
 
   const bookFilterStore = createBookFilterStore(books, filters)
-  // const bookBindingFilter = new BookBindingFilter()
-  //const bookCategoryFilter = new BookCategoryFilter(categories)
-  //const filters = [bookBindingFilter]
   let filterOpen = false
   let sorterKey = ''
-  //  $: sorter = bookSorters.find((sorter) => sorter.key === sorterKey)
-  //  $: books = sorter ? sorter.sort(books).slice(1) : bookSorters[0].sort(books)
-
   let criterias
   $: criterias = filters
     .map((filter) => getMostSpecificCriteria(new URLSearchParams(), filter.key))
@@ -91,6 +82,5 @@
         {/each}
       </div>
     </div>
-    {#if filterOpen}{/if}
   </div>
 </div>

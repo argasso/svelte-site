@@ -32,7 +32,10 @@
   <section class="text-gray-700 body-font overflow-hidden py">
     <div class="mx-auto flex flex-wrap mt-10">
       <div class="w-1/3 sm:w-1/3">
-        <img alt="ecommerce" class="h-auto object-contain object-top rounded" src={image} />
+        <img
+          data-blink-src={image}
+          alt={`Omslag för ${title}`}
+          class="h-auto object-contain object-top rounded" />
       </div>
       <div class="w-2/3 pl-5 sm:pl-10 ">
         <div class="flex justify-between items-center">

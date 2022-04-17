@@ -66,7 +66,7 @@
         </nav>
       </div>
       <div class="lg:w-1/3 md:w-1/2 w-full mb-10">
-        <H3>Nyhetsbrev</H3>
+        <H3><label for="mce-EMAIL">Nyhetsbrev</label></H3>
         <div
           class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
           <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">

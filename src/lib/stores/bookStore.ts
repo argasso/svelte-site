@@ -23,7 +23,7 @@ function getMostSpecificCriteria(query: URLSearchParams, key: string): string[] 
 
 function filter(query: URLSearchParams, key: string, book: BookThumb): boolean {
   const values = getMostSpecificCriteria(query, key)
-  console.log('filter()', key, values)
+  // console.log('filter()', key, values)
   return values.length == 0 || filterFn[key](book, values)
 }
 
@@ -45,7 +45,6 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
   let path: string
 
   const value = calculate(query)
-  console.log(value)
   const { subscribe, set } = writable(value)
 
   page.subscribe((p) => {

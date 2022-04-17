@@ -18,6 +18,24 @@
 
 <svelte:head>
   <title>{title}</title>
+  <script>
+    ;(function (src, cb) {
+      var s = document.createElement('script')
+      s.setAttribute('src', src)
+      s.onload = cb
+      ;(document.head || document.body).appendChild(s)
+    })('https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js', function () {
+      window.Blinkloader.optimize({
+        pubkey: '75a654a4310401994084',
+        responsive: true,
+        smartCompression: true,
+        retina: true,
+        webp: true,
+        fadeIn: true,
+        lazyload: true,
+      })
+    })
+  </script>
 </svelte:head>
 
 <div class="container">

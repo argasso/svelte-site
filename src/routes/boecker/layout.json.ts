@@ -1,7 +1,6 @@
 import bookCollection from '$lib/cms/collections/bookCollection'
 import categoryCollection from '$lib/cms/collections/categoryCollection'
 import { getObjectField, getSelectField } from '$lib/utils/cmsHelper'
-import { slug } from '$lib/utils/util'
 import type { BookThumb, Filter, FilterParam, MyRequestHandler } from 'src/types'
 import { allBooks, mapBookThumb } from '../bok/[slug].json'
 import { allCategories } from '../[...slug]'
