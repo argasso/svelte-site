@@ -11,7 +11,11 @@ type Output = {
 }
 
 export const get: MyRequestHandler<Output> = async () => {
-  const books = await Promise.all(allBooks().map((b) => mapBookThumb(b)))
+  const books = await Promise.all(
+    allBooks()
+      .filter((b) => b.published)
+      .map((b) => mapBookThumb(b)),
+  )
   const filters = [getCategoryFilter(), getBindingsFilter()]
 
   return {

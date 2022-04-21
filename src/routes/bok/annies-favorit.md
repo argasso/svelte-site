@@ -7,7 +7,7 @@ kategori:
   - boecker/laettlaesta-boecker/fraan-10-aar/index
 isbn: 978-91-87667-57-2
 price: 93
-published: true
+published: false
 discontinued: false
 shortDescription: >-
   Karam tycker om sin nya skola.  Alla barnen är trevliga.  Alla utom Alex. När

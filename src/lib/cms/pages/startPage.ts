@@ -17,6 +17,23 @@ const startPage: CmsCollectionFile = {
       ],
     },
     {
+      label: 'Nyheter',
+      name: 'nyheter',
+      widget: 'list',
+      fields: [
+        {
+          label: 'Bok',
+          name: 'bok',
+          widget: 'relation',
+          collection: 'Book',
+          search_fields: ['title'],
+          display_fields: ['title'],
+          value_field: '{{slug}}',
+        },
+        { label: 'Text', name: 'text', widget: 'markdown' },
+      ],
+    },
+    {
       label: 'Kommande',
       name: 'kommande',
       widget: 'list',

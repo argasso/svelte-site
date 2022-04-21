@@ -7,7 +7,7 @@ kategori:
   - boecker/laettlaesta-boecker/fraan-15-aar-vuxen/index
 isbn: 978-91-86579-71-5
 price: 99
-published: true
+published: false
 discontinued: false
 shortDescription: >-
   Ben blev mobbad i skolan. Nu är han död – knivhuggen mitt på gatan och lämnad

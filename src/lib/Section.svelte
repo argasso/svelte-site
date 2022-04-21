@@ -18,7 +18,7 @@
         {title}
       </h2>
       <div class="w-full mb-12">
-        <div class="h-1 mx-auto gradient w-72 opacity-75 my-0 py-0 rounded-t-3xl" />
+        <div class="h-1 mx-auto gradient max-w-xs opacity-75 my-0 py-0 rounded-t-3xl" />
       </div>
     {/if}
     <slot />

@@ -6,7 +6,7 @@ kategori:
   - boecker/ljudboecker/index
 isbn: 978-91-87667-13-8
 published: true
-discontinued: false
+discontinued: true
 shortDescription: >-
   Från sin plats högt uppe på taken har Taj utsikt över hela staden. Han vet att
   en gangsterledare har beordrat mordet på hans pappa. Han vet att han bara har

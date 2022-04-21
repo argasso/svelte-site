@@ -90,7 +90,7 @@
       </a>
     </div>
     <div class="pt-4 pb-3 border-t border-gray-700">
-      <div class="flex items-center px-5 space-x-3">
+      <!-- <div class="flex items-center px-5 space-x-3">
         <div class="flex-shrink-0">
           <img
             class="h-10 w-10 rounded-full"
@@ -101,7 +101,7 @@
           <div class="text-base font-medium leading-none text-white">Tom Cook</div>
           <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
         </div>
-      </div>
+      </div> -->
       <div class="mt-3 px-2 space-y-1">
         <a
           href="/boecker"

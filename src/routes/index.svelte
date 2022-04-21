@@ -30,6 +30,7 @@
 
   export let data: StartPage
   export let body: SvelteComponent
+  export let nyheter: BookThumbPromo[]
   export let kommande: BookThumbPromo[]
 
   const { title, intro } = data
@@ -43,7 +44,7 @@
 
 <Section title="Nyheter">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
-    {#each kommande as bok}
+    {#each nyheter as bok}
       <BookCardPromo bookThumbPromo={bok} />
     {/each}
   </div>

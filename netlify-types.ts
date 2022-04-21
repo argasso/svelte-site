@@ -61,6 +61,11 @@ export interface Startsida_Banners {
   image: string;
 }
 
+export interface Startsida_Nyheter {
+  bok: string;
+  text: string;
+}
+
 export interface Startsida_Kommande {
   bok: string;
   text: string;
@@ -75,6 +80,8 @@ export interface Startsida {
   title: string;
   intro: string;
   banners: Startsida_Banners[];
+  nyheter: Startsida_Nyheter[];
   kommande: Startsida_Kommande[];
   seo: Startsida_OptimeringAvSökmotorerSEO;
+  layout: any;
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createQueryStore, createSingleValueQueryStore } from '$lib/URLSearchParamsStore'
+  import { createSingleValueQueryStore } from '$lib/URLSearchParamsStore'
   import type { BookSortOption } from '$lib/utils/sortUtil'
 
   const sort = createSingleValueQueryStore('sort')

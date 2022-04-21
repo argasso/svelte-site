@@ -1,4 +1,4 @@
-import type { BookThumb, LinkInfo, MdsvexModule, MyRequestHandler, Slug } from 'src/types'
+import type { BookThumb, LinkInfo, MyRequestHandler, Slug } from 'src/types'
 import type { Book } from 'src/types/netlify-types'
 import { getAuthorLinkInfo } from '../foerfattare/[slug].json'
 import { getCategory, getCategoryBreadcrumbs, getCategoryLinkInfo } from '../[...slug]'
@@ -16,9 +16,12 @@ export const get: MyRequestHandler<Output> = async ({ params }) => {
 
   const book = getBook(slug)
   if (book) {
-    const authors = book.author.map((slug) => getAuthorLinkInfo(slug))
+    const authors = book.author?.map((slug) => getAuthorLinkInfo(slug)) || []
     const breadcrumbs = [...getCategoryBreadcrumbs(book.kategori?.[0]), getBookLinkInfo(book)]
-    const categories = book.kategori.map((slug) => getCategoryLinkInfo(getCategory(slug)))
+    const categories = book.kategori
+      .map((slug) => getCategory(slug))
+      .filter((c) => c != null)
+      .map((c) => getCategoryLinkInfo(c))
     return {
       body: {
         authors,
@@ -46,7 +49,7 @@ export function getBookThumb(slug: string): BookThumb {
 }
 
 export function mapBookThumb(book: Book & Slug): BookThumb {
-  const authors = book.author.map((slug) => getAuthorLinkInfo(slug))
+  const authors = book.author?.map((slug) => getAuthorLinkInfo(slug)) || []
   const { title, image, slug, generalDetails, kategori } = book
   const href = `${PATH}/${slug}`
   return {

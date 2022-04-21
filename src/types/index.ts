@@ -19,6 +19,7 @@ export type BookThumb = Pick<Book, 'title' | 'image' | 'generalDetails' | 'kateg
 
 export type BookThumbPromo = BookThumb & {
   text: string
+  categories: LinkInfo[]
 }
 
 export interface LinkInfo {

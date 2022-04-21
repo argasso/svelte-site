@@ -31,13 +31,21 @@ interface BookFilterStore {
   books: BookThumb[]
   total: number
   filters: Filter[]
+  filtering: boolean
+  pageing: Pageing
+}
+
+export interface Pageing {
+  count: number
+  page: number
+  size: number
 }
 
 interface BookFilterStoreApi {
   reset: () => void
 }
 
-type Store = Readable<BookFilterStore> & BookFilterStoreApi
+export type Store = Readable<BookFilterStore> & BookFilterStoreApi
 
 export function createBookFilterStore(books: BookThumb[], filters: Filter[]): Store {
   const total = books.length
@@ -51,17 +59,11 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
   page.subscribe((p) => {
     path = p.path
     query = p.query
-
-    // console.log('page.subscribe', p, query.toString())
-    const value = calculate(query)
-    set(value)
+    set(calculate(query))
   })
 
   function filterBooks(query: URLSearchParams) {
-    return books.map((book) => ({
-      ...book,
-      hidden: !filters.every((f) => filter(query, f.key, book)),
-    }))
+    return books.filter((book) => filters.every((f) => filter(query, f.key, book)))
   }
 
   function appendQuery(key: string, value: string): URLSearchParams {
@@ -72,9 +74,7 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
 
   function calculateCount(key: string, params: FilterParam[]): FilterParam[] {
     return params.map((p) => {
-      const count = filterBooks(appendQuery(key, p.value))
-        .filter((b) => !b.hidden)
-        .length.toString()
+      const count = filterBooks(appendQuery(key, p.value)).length.toString()
       if (p.children) {
         const children = calculateCount(key, p.children)
         return { ...p, count, children }
@@ -87,17 +87,30 @@ export function createBookFilterStore(books: BookThumb[], filters: Filter[]): St
     const filteredBooks = filterBooks(query)
     const sorter = bookSorters.find((sorter) => sorter.key === query?.get('sort')) || bookSorters[0]
     const sortedBooks = sorter.sort(filteredBooks)
+    const page = (parseInt(query?.get('page')) || 1) - 1
+    const size = parseInt(query?.get('size')) || 20
+    const start = page * size
+    const end = start + size
+    const pagedBooks = sortedBooks.slice(start, end)
 
     const f = filters.map((f) => {
       const params = calculateCount(f.key, f.params)
       return { ...f, params }
     })
+    const filtering = filters.map((f) => query?.getAll(f.key) || []).some((v) => v.length > 0)
+    // console.log({ page, size, start, end, count: sortedBooks.length, pagedBooks, filtering })
 
     // console.log('calculate new filters', f)
     return {
-      books: sortedBooks,
+      books: pagedBooks,
       total,
       filters: f,
+      filtering,
+      pageing: {
+        count: sortedBooks.length,
+        page,
+        size,
+      },
     }
   }
 

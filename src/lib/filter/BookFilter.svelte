@@ -9,7 +9,7 @@
 </script>
 
 <div class="block border-b md:border-none py-3">
-  <p class="font-bold">{filter.title}</p>
+  <p class="mb-1 font-medium text-md">{filter.title}</p>
   <ul class="m-0 p-0 list-none">
     {#each filter.params as param}
       <BookFilterItem {query} {param} />

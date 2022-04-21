@@ -69,7 +69,10 @@ export function getCategoryBreadcrumbs(categorySlug: string): LinkInfo[] {
     return slug.split('/').reduce<LinkInfo[]>((prev, next, index) => {
       const parent = prev[index - 1]
       const slug = parent ? `${parent.href.slice(1)}/${next}` : next
-      prev.push(getCategoryLinkInfo(getCategory(slug)))
+      const category = getCategory(slug)
+      if (category) {
+        prev.push(getCategoryLinkInfo(category))
+      }
       return prev
     }, [])
   }

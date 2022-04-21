@@ -77,7 +77,7 @@
               method="post"
               name="mc-embedded-subscribe-form"
               target="_blank">
-              <div id="mc_embed_signup_scroll" class="flex">
+              <div id="mc_embed_signup_scroll" class="flex flex-col md:flex-row gap-3">
                 <div style="position: absolute; left: -5000px;">
                   <input
                     tabindex="-1"
@@ -87,7 +87,7 @@
                 </div>
                 <input
                   id="mce-EMAIL"
-                  class="mr-3 bg-argasso-100 rounded border border-gray-300 focus:bg-white focus:ring-2 focus:ring-red-200 text-base outline-none  py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  class="md:mr-3 bg-argasso-100 rounded border border-gray-300 focus:bg-white focus:ring-2 focus:ring-red-200 text-base outline-none  py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   name="EMAIL"
                   type="email"
                   value=""
