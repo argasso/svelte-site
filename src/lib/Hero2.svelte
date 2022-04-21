@@ -6,27 +6,27 @@
 <div class="gradient text-white">
   <div class="container flex flex-wrap flex-col md:flex-row items-center">
     <div
-      class="flex flex-col w-full md:w-1/2 justify-center items-start text-center md:text-left md:pr-10">
+      class="flex flex-col w-full md:w-3/5 justify-center items-start text-center md:text-left md:pr-10">
       <h1 class="my-2 text-4xl leading-tight font-serif">
-        <div class="uppercase w-full text-xl font-sans font-light my-4 tracking-wide">
+        <div class="uppercase w-full text-xl font-sans font-light my-3 tracking-wide">
           {title}
         </div>
         {intro}
       </h1>
       <a
         href="/boecker"
-        class="mx-auto lg:mx-0 bg-argasso-100 hover:bg-argasso-200 active:bg-white text-gray-800 font-bold rounded-full my-3 py-4 px-8 shadow-lg focus:shadow-outline">
+        class="mx-auto lg:mx-0 bg-argasso-100 hover:bg-argasso-200 active:bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg focus:shadow-outline">
         Se alla våra böcker
       </a>
     </div>
-    <div class="w-full md:w-1/2">
+    <div class="w-full md:w-2/5 p-10 pb-20 md:p-0 md:pb-6">
       <img
-        class="object-contain p-10 pb-20 md:p-0 md:pb-0"
+        class="object-contain md:max-h-40"
         src="/uploads/hero.png"
         alt="Bild på böcker från Argasso" />
     </div>
   </div>
-  <div class=" -mt-24">
+  <div class="-mt-24">
     <svg
       viewBox="0 0 1428 174"
       version="1.1"
