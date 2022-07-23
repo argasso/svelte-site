@@ -8,7 +8,7 @@
 
 {#if links.length > 0}
   <div
-    class="w-full md:w-80 bg-gradient-to-b from-gray-200 md:flex-none justify-start p-6 md:p-10 md:py-7 rounded">
+    class="w-full bg-gray-200 md:bg-transparent md:w-80 md:bg-gradient-to-b md:from-gray-200 md:flex-none justify-start p-6 md:p-10 md:py-7 md:rounded">
     <h2>{title}</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1 ">
       {#each links as link}

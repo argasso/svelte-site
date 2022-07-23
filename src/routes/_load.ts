@@ -1,10 +1,9 @@
 import type { Load } from '@sveltejs/kit'
 
-export const load: Load = async ({ fetch, page }) => {
-  const { path } = page
+export const load: Load = async ({ fetch, url }) => {
   // Need to work around https://github.com/sveltejs/kit/issues/1714
-  const url = path === '/' ? '/index.json' : `/api${page.path}.json` // This will call [...slug].ts
-  const res = await fetch(url)
+  const endpoint = url.pathname === '/' ? '/index.json' : `/api${url.pathname}.json` // This will call [...slug].ts
+  const res = await fetch(endpoint)
 
   if (res.ok) {
     return {

@@ -1,10 +1,10 @@
 <script lang="ts">
   import Logo from '$lib/logo/Logo.svelte'
+  import { writable } from 'svelte/store'
   import NavLink from './NavLink.svelte'
 
-  let open = false
+  let open = writable(false)
   let scrollY = 0
-  let scrollClass = ''
   $: scrollClass =
     scrollY > 0
       ? 'ease-out bg-argasso-700 bg-opacity-95 shadow-md backdrop-filter backdrop-blur-sm '
@@ -13,7 +13,7 @@
 
 <svelte:window bind:scrollY />
 
-<nav class="sticky top-0 z-50 text-white transition-allx duration-200x ease-inx {scrollClass}">
+<nav class="sticky top-0 z-40 text-white transition-allx duration-200x ease-inx {scrollClass}">
   <div class="container opacity-100 flex items-stretch justify-between h-14">
     <div class="flex items-stretch py-1 gap-5">
       <NavLink href="/" exact={true}>
@@ -43,9 +43,10 @@
     <div class="-mr-2 flex md:hidden">
       <!-- Mobile menu button -->
       <button
+        on:click={() => open.set(!$open)}
         class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-white hover:bg-red-900 focus:bg-red-900 focus:text-white">
         <svg
-          class={`${open ? 'hidden' : 'block'} h-6 w-6`}
+          class={`${$open ? 'hidden' : 'block'} h-6 w-6`}
           stroke="currentColor"
           fill="none"
           viewBox="0 0 24 24">
@@ -56,7 +57,7 @@
             d="M4 6h16M4 12h16M4 18h16" />
         </svg>
         <svg
-          class={`${open ? 'block' : 'hidden'} h-6 w-6`}
+          class={`${$open ? 'block' : 'hidden'} h-6 w-6`}
           stroke="currentColor"
           fill="none"
           viewBox="0 0 24 24">
@@ -69,7 +70,7 @@
       </button>
     </div>
   </div>
-  <div class={`${open ? 'block' : 'hidden'} md:hidden `}>
+  <div class={`${$open ? 'block' : 'hidden'} md:hidden `}>
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <a
         href="/boecker"

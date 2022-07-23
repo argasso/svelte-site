@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createSingleValueQueryStore } from '$lib/URLSearchParamsStore'
+  import { getSingleValueQueryStore } from '$lib/URLSearchParamsStore'
 
   type Option = { value: string; title: string }
 
@@ -20,7 +20,7 @@
     return option
   })
 
-  const value = createSingleValueQueryStore(queryKey)
+  const value = getSingleValueQueryStore(queryKey)
 </script>
 
 <select class={'btn-square ' + className} bind:value={$value}>

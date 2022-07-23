@@ -15,15 +15,15 @@ const months = [
   'december',
 ]
 
-export type SortOption<T> = {
+type SortOption<T> = {
   title: string
   key: string
   sort: (items: T[]) => T[]
 }
 
-export type BookSortOption = SortOption<BookThumb>
+type BookSortOption = SortOption<BookThumb>
 
-export function parseArgassoDate(book: BookThumb): string {
+function parseArgassoDate(book: BookThumb): string {
   const argassoDate = book.generalDetails?.publishMonth || ''
   const parts = argassoDate.split(' ')
   if (parts.length == 2) {
@@ -33,16 +33,21 @@ export function parseArgassoDate(book: BookThumb): string {
   return ''
 }
 
-export const sortBookOnDateNewest: BookSortOption = {
+const sortBookOnDateNewest: BookSortOption = {
   title: 'nyaste först',
   key: '',
   sort: (items) => items.sort((a, b) => parseArgassoDate(b).localeCompare(parseArgassoDate(a))),
 }
 
-export const sortBookOnDateOldest: BookSortOption = {
+const sortBookOnDateOldest: BookSortOption = {
   title: 'äldsta först',
   key: 'oldest',
   sort: (items) => items.sort((a, b) => parseArgassoDate(a).localeCompare(parseArgassoDate(b))),
 }
 
 export const bookSorters = [sortBookOnDateNewest, sortBookOnDateOldest]
+
+export function sortBooks(books: BookThumb[], key = ''): BookThumb[] {
+  const sorter = bookSorters.find((s) => s.key === key) || bookSorters[0]
+  return sorter.sort(books)
+}

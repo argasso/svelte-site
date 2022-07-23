@@ -42,4 +42,4 @@ export interface FilterParam {
 
 type Typify<T> = { [K in keyof T]: Typify<T[K]> }
 
-export type MyRequestHandler<T> = RequestHandler<Record<string, any>, unknown, Typify<T>>
+export type MyRequestHandler<T> = RequestHandler<Record<string, string>, Typify<T>>

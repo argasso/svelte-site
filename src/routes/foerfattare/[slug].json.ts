@@ -7,7 +7,7 @@ type Output = {
   breadcrumbs: LinkInfo[]
 }
 
-export const get: MyRequestHandler<Output> = async ({ params }) => {
+export const GET: MyRequestHandler<Output> = async ({ params }) => {
   const { slug } = params
 
   const module = getAuthor(slug)
@@ -44,7 +44,7 @@ export function getAuthor(slug: string): Author {
 // }
 
 export function allAuthors(): (Author & Slug)[] {
-  return Object.entries(import.meta.globEager('./*.md')).map(([path, module]) => {
+  return Object.entries(import.meta.glob('./*.md', { eager: true })).map(([path, module]) => {
     const slug = path.replace('./', '').replace('.md', '')
     const metadata = module.metadata as Author
     return {

@@ -11,7 +11,7 @@ type Output = {
   categories: LinkInfo[]
 }
 
-export const get: MyRequestHandler<Output> = async ({ params }) => {
+export const GET: MyRequestHandler<Output> = async ({ params }) => {
   const { slug } = params
   if (!slug.startsWith(ENDPOINT_PREFIX) || !slug.endsWith(ENDPOINT_SUFFIX)) {
     return

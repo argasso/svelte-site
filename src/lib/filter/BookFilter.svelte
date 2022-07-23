@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { Filter } from 'src/types'
-  import { createQueryStore } from '../URLSearchParamsStore'
+  import { getQueryStore } from '../URLSearchParamsStore'
   import BookFilterItem from './BookFilterItem.svelte'
 
   export let filter: Filter
 
-  const query = createQueryStore(filter.key)
+  const query = getQueryStore(filter.key)
 </script>
 
 <div class="block border-b md:border-none py-3">

@@ -10,7 +10,7 @@ type Output = {
   filters: Filter[]
 }
 
-export const get: MyRequestHandler<Output> = async () => {
+export const GET: MyRequestHandler<Output> = async () => {
   const books = await Promise.all(
     allBooks()
       .filter((b) => b.published)

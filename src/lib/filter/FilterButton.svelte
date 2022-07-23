@@ -1,11 +1,11 @@
 <script lang="ts">
+  import { isOverlayOpen } from '$lib/stores/overlayStore'
   let className = ''
   export { className as class }
-  export let filterOpen = false
   export let criterias: string[]
 </script>
 
-<button class={'btn-square px-4 ' + className} on:click={() => (filterOpen = !filterOpen)}>
+<button class={'btn-square px-4 ' + className} on:click={() => isOverlayOpen.set(true)}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlns-xlink="http://www.w3.org/1999/xlink"

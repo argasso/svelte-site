@@ -2,7 +2,7 @@
   import { page } from '$app/stores'
 
   let active = false
-  $: active = $page.path && href && $page.path.includes(href)
+  $: active = $page.url.pathname && href && $page.url.pathname.includes(href)
 
   let className = ''
   export { className as class }

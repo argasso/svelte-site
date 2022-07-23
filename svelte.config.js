@@ -1,7 +1,7 @@
 import preprocess from 'svelte-preprocess'
 import { mdsvex } from 'mdsvex'
 import mdsvexConfig from './mdsvex.config.js'
-import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-netlify'
 
 const mdScript = `
 <script context="module">
@@ -25,6 +25,7 @@ const config = {
   preprocess: [
     {
       markup: ({ content, filename }) => {
+        //console.log('filename', filename)
         if (filename.endsWith('.md')) {
           return { code: content + mdScript }
         } else if (filename.endsWith('.mdx')) {
@@ -39,14 +40,7 @@ const config = {
     }),
   ],
   kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: '#svelte',
-    adapter: adapter({
-      // default options are shown
-      pages: 'build',
-      assets: 'build',
-      fallback: null,
-    }),
+    adapter: adapter(),
   },
 }
 

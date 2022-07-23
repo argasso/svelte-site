@@ -2,12 +2,11 @@
 </script>
 
 <script lang="ts">
-  import type { Pageing } from '$lib/stores/bookStore'
-  import { createSingleValueQueryStore } from '$lib/URLSearchParamsStore'
+  import { getSingleValueQueryStore } from '$lib/URLSearchParamsStore'
 
   let className = ''
   export { className as class }
-  export let pageing: Pageing
+  export let pageing: { count: number; size: number }
   export let buttons = [-2, -1, 0, 1, 2]
   export let labels = {
     first: '<<',
@@ -16,7 +15,7 @@
     previous: '<',
   }
 
-  const pageStore = createSingleValueQueryStore('page')
+  const pageStore = getSingleValueQueryStore('page')
   $: page = (parseInt($pageStore) || 1) - 1
 
   $: pageCount = Math.floor(pageing.count / pageing.size)
@@ -87,10 +86,6 @@
   }
 
   button {
-    /* background: transparent; */
-    /* border: 1px solid; */
-    /* padding: 5px 10px; */
-    /* float: left; */
     cursor: pointer;
   }
 </style>

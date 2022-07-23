@@ -7,7 +7,10 @@
   export let exact = false
 
   let isMatching = false
-  $: isMatching = $page.path && href && exact ? $page.path === href : $page.path.includes(href)
+  $: isMatching =
+    $page.url.pathname && href && exact
+      ? $page.url.pathname === href
+      : $page.url.pathname.includes(href)
 
   let activeClass = ''
   $: activeClass = isMatching ? 'mt-1 border-b-4' : 'animate-link'

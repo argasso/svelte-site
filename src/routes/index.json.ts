@@ -4,19 +4,24 @@ import { getBookThumb } from './bok/[slug].json'
 import { getCategory, getCategoryLinkInfo } from './[...slug]'
 
 type Output = {
+  title: string
+  intro: string
   nyheter: BookThumbPromo[]
   kommande: BookThumbPromo[]
 }
 
-export const get: MyRequestHandler<Output> = async () => {
+export const GET: MyRequestHandler<Output> = async () => {
   const module = await getStartPage()
   if (module) {
     const page = module.metadata
+    const { title, intro } = page
     const nyheter = await Promise.all(page.nyheter.map((b) => mapBookThumbPromo(b)))
     const kommande = await Promise.all(page.kommande.map((b) => mapBookThumbPromo(b)))
 
     return {
       body: {
+        title,
+        intro,
         nyheter,
         kommande,
       },
