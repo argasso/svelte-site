@@ -52,19 +52,18 @@ function mapTweet(tweet: ApiTweet, includes: ApiIncludes): Tweet {
 }
 
 const handler: Handler = async (event, context) => {
+  const url = `https://api.twitter.com/2/users/${
+    import.meta.env.VITE_TWITTER_ID
+  }/tweets?max_results=5&tweet.fields=created_at,attachments,entities&expansions=attachments.media_keys,author_id&user.fields=name,profile_image_url&media.fields=url`
+
   try {
-    const response = await fetch(
-      `https://api.twitter.com/2/users/${
-        import.meta.env.VITE_TWITTER_ID
-      }/tweets?max_results=5&tweet.fields=created_at,attachments,entities&expansions=attachments.media_keys,author_id&user.fields=name,profile_image_url&media.fields=url`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_TWITTER_BEARER_TOKEN}`,
-        },
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_TWITTER_BEARER_TOKEN}`,
       },
-    )
+    })
     if (response.ok) {
       const json = (await response.json()) as components['schemas']['Get2TweetsResponse']
       const { data, includes } = json
@@ -83,9 +82,11 @@ const handler: Handler = async (event, context) => {
       }
     }
   } catch (err) {
+    const error = `Error when fetching tweets: ${err}, url: ${url}`
+    console.error(error)
     return {
       statusCode: 500,
-      error: `Error when fetching tweets: ${err}`,
+      error,
     }
   }
 }
