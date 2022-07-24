@@ -135,6 +135,9 @@ function createBookStore(): Readable<BookStoreValue> & BookStoreApi {
       books = b
       filters = f
       page.subscribe((p) => {
+        // if (!p.url.pathname.startsWith('/boecker')) {
+        //   return
+        // }
         if (p.url.pathname != path || p.url.searchParams?.toString() != query?.toString()) {
           const updatedQuery = handleQuery(path, p.url.pathname, p.url.searchParams)
           path = p.url.pathname

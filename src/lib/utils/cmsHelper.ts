@@ -7,10 +7,11 @@ import type {
   CmsFieldMeta,
 } from 'netlify-cms-core'
 import { getDocumentStyles } from '$lib/utils/documentHelper'
-import React, { ReactElement, RefObject } from 'react'
+import React from 'react'
+import type { ReactElement, RefObject } from 'react'
 import MdxComponent from './MdxComponent'
+import { PreviewTemplateMenysida } from '$lib/admin/components/PreviewTemplateMenysida'
 
-//import { PreviewTemplateMenysida } from '../components/cms/PreviewTemplateMenysida'
 const mdxComponentElementNames = ['blockquote', 'ul', 'li', 'img', 'KatalogForm']
 export const mdxComponents = mdxComponentElementNames.reduce((obj, name) => {
   obj[name] = (props) => {
@@ -82,7 +83,7 @@ function registerPreviewStyle(cms: CMS) {
 }
 
 function registerPreviewTemplates(cms: CMS) {
-  // cms.registerPreviewTemplate('Category', PreviewTemplateMenysida)
+  cms.registerPreviewTemplate('Category', PreviewTemplateMenysida)
 }
 
 export function getObjectField(name: string, fields?: CmsField[]): CmsFieldBase & CmsFieldObject {

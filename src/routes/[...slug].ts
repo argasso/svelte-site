@@ -42,14 +42,16 @@ export const GET: MyRequestHandler<Output> = async ({ params }) => {
 }
 
 export function allCategories(): (Category & Slug)[] {
-  return Object.entries(import.meta.globEager('./**/index.mdx')).map(([path, module]) => {
-    const slug = path.replace('./', '').replace('/index.mdx', '')
-    const metadata = module.metadata as Category
-    return {
-      ...metadata,
-      slug,
-    }
-  })
+  return Object.entries(import.meta.glob('./**/index.mdx', { eager: true })).map(
+    ([path, module]) => {
+      const slug = path.replace('./', '').replace('/index.mdx', '')
+      const metadata = module.metadata as Category
+      return {
+        ...metadata,
+        slug,
+      }
+    },
+  )
 }
 
 export function getCategoryLinkInfo(category: Category & Slug): LinkInfo {

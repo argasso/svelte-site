@@ -12,7 +12,9 @@
     window.process = process
     const CMS = import('netlify-cms-app').then(async (cms) => {
       await customizeCms(cms.default)
-      cms.default.init({ config })
+      // console.log(config)
+      // cms.default.init({ config })
+      cms.default.init()
     })
     // const preview = mdx.setupPreview({
     //   components,

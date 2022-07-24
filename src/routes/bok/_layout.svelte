@@ -3,7 +3,7 @@
   export { blockquote, img }
 </script>
 
-<script>
+<script lang="ts">
   import BookDetails from '$lib/BookDetails.svelte'
   import Link from '$lib/components/Link.svelte'
   import Breadcrumb from '$lib/Breadcrumb.svelte'

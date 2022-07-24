@@ -15,7 +15,6 @@
 		"types": "netlify-ts static/admin/config.yml src/types/netlify-types.ts"
 	},
 	"devDependencies": {
-		"@emotion/styled-base": "^11.0.0",
 		"@iconify/svelte": "^2.2.1",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.70",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
@@ -54,7 +53,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@emotion/styled-base": "^10.3.0",
 		"@fontsource/fira-mono": "^4.2.2",
+		"@netlify/functions": "^1.0.0",
 		"@tailwindcss/forms": "^0.5.2",
 		"@tailwindcss/line-clamp": "^0.4.0",
 		"cookie": "^0.5.0",

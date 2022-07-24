@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, ReactNode, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import Html from '$lib/components/Html.svelte'
 
 type Props = {

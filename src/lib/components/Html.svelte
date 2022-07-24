@@ -1,7 +1,7 @@
 <script lang="ts">
   import { h1, h2, h3, h4, blockquote, ul, li, img, P } from '$lib/components'
   import KatalogForm from '$lib/components/KatalogForm.svelte'
-  export let name: keyof typeof components
+  export let name: string
   export let children: string | any
 
   let array: Array<string | any>
@@ -17,7 +17,7 @@
 </script>
 
 {#if components[name]}
-  <svelte:component this={components[name]}>
+  <svelte:component this={components[name]} {...$$restProps}>
     {#each array as child}
       {#if typeof child === 'object'}
         <svelte:self {...child.props} />

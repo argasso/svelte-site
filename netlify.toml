@@ -1,3 +1,10 @@
 [build]
   command = "npm run build"
   publish = "build"
+
+[dev]
+  command = "vite dev"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
