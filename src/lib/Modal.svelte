@@ -10,9 +10,8 @@
     <div class="absolute w-full h-full bg-gray-900 opacity-50 z-50" />
     <div
       class="bg-white w-full h-full lg:h-auto lg:w-1/2 mx-auto rounded-lg shadow-xl z-50 overflow-auto">
-      <div
-        class="flex justify-between items-center head bg-gray-100 py-5 px-8 text-2xl font-extrabold">
-        {title}
+      <div class="flex justify-between items-center head bg-gray-100 py-5 px-8">
+        <h3>{title}</h3>
         <button
           class="p-2 bg-gray-200 hover:bg-gray-300 rounded-full ml-4"
           on:click={() => dispatch('close')}>

@@ -2,17 +2,22 @@
   import { page } from '$app/stores'
 
   let active = false
-  $: active = $page.url.pathname && href && $page.url.pathname.includes(href)
+  $: active =
+    href != null && page != null && $page.url.pathname != null && $page.url.pathname.includes(href)
 
   let className = ''
   export { className as class }
 
-  export let href: string
+  export let href: string | undefined = undefined
 </script>
 
-<a {href} class="animate-link {className}" class:active>
+{#if href}
+  <a {href} class="animate-link {className}" class:active>
+    <slot />
+  </a>
+{:else}
   <slot />
-</a>
+{/if}
 
 <style>
   .animate-link {

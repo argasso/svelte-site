@@ -41,7 +41,8 @@ collections:
         name: image
         widget: image
         required: false
-      - label: Optimering av sökmotorer SEO
+      - &a1
+        label: Optimering av sökmotorer SEO
         name: seo
         widget: object
         collapsed: false
@@ -86,6 +87,7 @@ collections:
       - label: Beskrivning
         name: body
         widget: markdown
+      - *a1
   - name: Book
     label: Böcker
     label_singular: Bok
@@ -224,6 +226,7 @@ collections:
             name: reciter
             widget: string
             required: false
+      - *a1
   - name: Pages
     label: Sidor
     label_singular: Sida

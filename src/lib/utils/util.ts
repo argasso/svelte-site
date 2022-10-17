@@ -7,10 +7,7 @@ import type {
   CmsFieldSelect,
 } from 'netlify-cms-core'
 
-export const slugFromPath = (path: string): string =>
-  path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null
-
-export function asArray(value?: string | string[]): string[] {
+export function asArray(value?: string | string[] | null): string[] {
   const nonNull = value || []
   return Array.isArray(nonNull) ? nonNull : [nonNull]
 }

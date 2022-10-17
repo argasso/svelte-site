@@ -1,6 +1,6 @@
 import type { RequestHandler } from '@sveltejs/kit'
 import type { SvelteComponent } from 'svelte'
-import type { Book } from './netlify-types'
+import type { Author, Book, Category, StartPage } from './netlify-types'
 
 export type MdsvexModule<T> = {
   default: SvelteComponent
@@ -15,15 +15,40 @@ export type BookThumb = Pick<Book, 'title' | 'image' | 'generalDetails' | 'kateg
   href: string
   authors: LinkInfo[]
   hidden?: boolean
+  categories?: LinkInfo[]
 }
 
 export type BookThumbPromo = BookThumb & {
   text: string
-  categories: LinkInfo[]
+}
+
+type Resolved = Slug & {
+  breadcrumbs: LinkInfo[]
+}
+
+export type BookResolved = Resolved &
+  Book & {
+    authors: LinkInfo[]
+    categories: LinkInfo[]
+  }
+
+export type AuthorResolved = Resolved &
+  Author & {
+    authoredBooks: BookThumb[]
+  }
+
+export type CategoryResolved = Resolved &
+  Category & {
+    categories: LinkInfo[]
+  }
+
+export type StartpageResolved = StartPage & {
+  nyheterResolved: BookThumbPromo[]
+  kommandeResolved: BookThumbPromo[]
 }
 
 export interface LinkInfo {
-  href: string
+  href?: string
   name: string
 }
 

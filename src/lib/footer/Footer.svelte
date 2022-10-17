@@ -1,5 +1,4 @@
 <script lang="ts">
-  import H3 from '$lib/components/H3.svelte'
   import Logo from '$lib/logo/Logo.svelte'
 </script>
 
@@ -38,7 +37,7 @@
   <div class="container">
     <div class="flex flex-wrap md:text-left text-center order-first">
       <div class="lg:w-1/3 md:w-1/2 w-full mb-10">
-        <H3>Kontaktuppgifter</H3>
+        <h3>Kontaktuppgifter</h3>
         <nav class="list-none text-red-100">
           <li class="mb-2 ">
             Lasarettsgatan 12
@@ -50,7 +49,7 @@
         </nav>
       </div>
       <div class="lg:w-1/3 md:w-1/2 w-full mb-10">
-        <H3>Villkor</H3>
+        <h3>Villkor</h3>
         <nav class="list-none text-red-100">
           <li class="mb-2">
             <a href="/integritetspolicy" class="mb-2 text-red-100">
@@ -66,7 +65,7 @@
         </nav>
       </div>
       <div class="lg:w-1/3 md:w-1/2 w-full mb-10">
-        <H3><label for="mce-EMAIL">Nyhetsbrev</label></H3>
+        <h3><label for="mce-EMAIL">Nyhetsbrev</label></h3>
         <div
           class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
           <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">

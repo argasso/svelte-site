@@ -2,8 +2,8 @@ import bookCollection from '$lib/cms/collections/bookCollection'
 import categoryCollection from '$lib/cms/collections/categoryCollection'
 import { getObjectField, getSelectField } from '$lib/utils/cmsHelper'
 import type { BookThumb, Filter, FilterParam, MyRequestHandler } from 'src/types'
-import { allBooks, mapBookThumb } from '../bok/[slug].json'
-import { allCategories } from '../[...slug]'
+import { allBooks, mapBookThumb } from '../bok/_loader'
+import { allCategories } from '../_loader'
 
 type Output = {
   books: BookThumb[]
@@ -33,7 +33,7 @@ function getCategoryFilter(): Filter {
   const categoryMap = Object.fromEntries(
     allCategories()
       .filter((c) => c.slug.startsWith('boecker') && c.slug !== 'boecker')
-      .map((c) => [c.slug, { label: c.title, value: c.slug, children: [] }]),
+      .map((c) => [c.slug, { label: c.title, value: c.slug, children: [] } as FilterParam]),
   )
 
   const params = Object.keys(categoryMap)

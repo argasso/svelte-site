@@ -1,4 +1,5 @@
 import type { Collection } from '../config'
+import seo from '../partials/seo'
 
 const authorCollection: Collection = {
   name: 'Author',
@@ -20,6 +21,7 @@ const authorCollection: Collection = {
     },
     { label: 'Porträtt', name: 'image', widget: 'image', required: false },
     { label: 'Beskrivning', name: 'body', widget: 'markdown' },
+    seo,
   ],
 }
 

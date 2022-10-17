@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   // https://github.com/jpinho/svelte-react/blob/main/src/utils/ReactAdapter.svelte
   import React from 'react'
   import ReactDOM from 'react-dom'
   import { onDestroy, onMount } from 'svelte'
   const e = React.createElement
-  let container
+  let container: any
   /**
    * Svelte compiles on the server/statically, React renders on the client.
    * Therefore, React stuff need to happen within Svelte (window/dom) zones.

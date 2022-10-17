@@ -66,6 +66,31 @@ blockquote p:nth-last-child(n + 2) ~ p:last-child {
   @apply flex align-baseline text-sm font-sans font-bold not-italic;
 }
 
+blockquote {
+  position: relative;
+  z-index: 1;
+  @apply italic my-6 p-6 pb-2 text-xl font-serif border-l-8 bg-neutral-50 text-gray-700 border-argasso-600 shadow-sm;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  z-index: -1;
+  @apply text-8xl text-gray-200 leading-none;
+}
+
+blockquote:before {
+  content: '\201C';
+  top: -1px;
+  left: -1px;
+}
+
+blockquote:after {
+  content: '\201D';
+  right: 14px;
+  bottom: -50px;
+}
+
 ul {
   @apply list-disc list-inside pl-3 mb-3;
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isOverlayOpen } from '$lib/stores/overlayStore'
+  import { isOverlayOpen } from '$lib/stores/store'
   let className = ''
   export { className as class }
   export let criterias: string[]

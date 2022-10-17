@@ -9,10 +9,9 @@
 
   const { label, value, children, count } = param
 
-  let checked
   $: checked = $query.includes(value)
 
-  function handleChange(event) {
+  function handleChange(event: any) {
     const { name, checked } = event.target as HTMLInputElement
     if (checked) {
       query.update((values) => [...values, name])

@@ -1,7 +1,19 @@
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
+
+// Let's create a plugin that adds utilities!
+const capitalizeFirst = plugin(function ({ addUtilities }) {
+  const newUtilities = {
+    '.capitalize-first:first-letter': {
+      textTransform: 'uppercase',
+    },
+  }
+  addUtilities(newUtilities, ['responsive', 'hover'])
+})
+
 const config = {
   mode: 'jit',
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts,tsx}'],
   darkMode: 'class',
   theme: {
     container: {
@@ -61,6 +73,7 @@ const config = {
     require('@tailwindcss/line-clamp'),
     // require('tailwindcss-debug-screens'),
     require('@tailwindcss/forms'),
+    capitalizeFirst,
   ],
 }
 

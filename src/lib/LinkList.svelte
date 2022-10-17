@@ -13,9 +13,13 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1 ">
       {#each links as link}
         <div class="my-1">
-          <Link href={link.href}>
+          {#if link.href}
+            <Link href={link.href}>
+              {link.name}
+            </Link>
+          {:else}
             {link.name}
-          </Link>
+          {/if}
         </div>
       {/each}
     </div>

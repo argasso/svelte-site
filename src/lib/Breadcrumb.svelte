@@ -11,11 +11,7 @@
     </li>
     {#each crumbs as { href, name }}
       <li class="breadcrumb-items">
-        {#if href}
-          <a sveltekit:prefetch {href}>{name}</a>
-        {:else}
-          {name}
-        {/if}
+        <a class="first-letter:uppercase inline-block" sveltekit:prefetch {href}>{name}</a>
       </li>
     {/each}
   </ol>

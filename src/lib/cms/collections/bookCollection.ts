@@ -1,4 +1,5 @@
 import type { Collection } from '../config'
+import seo from '../partials/seo'
 
 const bookCollection: Collection = {
   name: 'Book',
@@ -166,6 +167,7 @@ const bookCollection: Collection = {
         },
       ],
     },
+    seo,
   ],
 }
 

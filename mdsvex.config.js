@@ -3,14 +3,9 @@ import remarkAbbr from 'remark-abbr'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
-export default {
+export const mdsvexConfig = {
   extensions: ['.svelte.md', '.md', '.mdx', '.svx'],
-  layout: {
-    bok: './src/routes/bok/_layout.svelte',
-    foerfattare: './src/routes/foerfattare/_layout.svelte',
-    startpage: './src/lib/mdx/layout.svelte',
-    _: './src/routes/_layout.svelte',
-  },
+  layout: './src/lib/mdx/layout.svelte',
   smartypants: {
     dashes: 'oldschool',
   },

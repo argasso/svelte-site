@@ -6,9 +6,9 @@
   import type { LinkInfo } from 'src/types'
 
   export let details: Pick<Book, 'generalDetails' | 'translationDetails' | 'audioDetails'>
-  export let categories: LinkInfo[]
+  export let categories: LinkInfo[] = []
 
-  const labels = reduceLabels(bookCollection.fields || [])
+  $: labels = reduceLabels(bookCollection.fields || [])
 
   function reduceLabels(fields: CmsField[]): { [key: string]: string } {
     return (
@@ -24,7 +24,7 @@
     )
   }
 
-  const rows = Object.entries({
+  $: rows = Object.entries({
     ...details.generalDetails,
     ...details.audioDetails,
     ...details.translationDetails,
@@ -40,7 +40,7 @@
       <div class="bg-white px-5 py-3 grid grid-cols-3 gap-4">
         <dt class="text-sm font-medium text-gray-500">Ingår i kategori</dt>
         <dd class="col-span-2 mt-1 text-sm text-gray-900 sm:mt-0">
-          {#each categories as c (c.href)}
+          {#each categories as c}
             <span
               class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-argasso-700 bg-argasso-100 uppercase last:mr-0 mr-1">
               <a href={c.href}>{c.name}</a>
