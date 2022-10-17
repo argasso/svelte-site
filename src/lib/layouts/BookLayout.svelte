@@ -94,6 +94,7 @@
         <div class="flex mx-1 my-5">
           <a
             href={`https://www.bokfynd.nu/${isbn}`}
+            target="_blank"
             class="flex ml-auto bg-argasso-600 hover:bg-argasso-500 active:bg-argasso-700 text-white rounded-full py-4 px-12 shadow-lg focus:shadow-outline">
             Köp via Bokfynd
           </a>

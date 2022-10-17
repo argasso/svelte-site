@@ -42,7 +42,7 @@
         <dd class="col-span-2 mt-1 text-sm text-gray-900 sm:mt-0">
           {#each categories as c}
             <span
-              class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-argasso-700 bg-argasso-100 uppercase last:mr-0 mr-1">
+              class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-argasso-700 bg-argasso-100 last:mr-0 mr-1">
               <a href={c.href}>{c.name}</a>
             </span>
           {/each}
