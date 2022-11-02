@@ -15,7 +15,7 @@
       </h1>
       <a
         href="/boecker"
-        class="mx-auto lg:mx-0 bg-argasso-100 hover:bg-argasso-200 active:bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg focus:shadow-outline">
+        class="mx-auto lg:mx-0 bg-white hover:bg-argasso-100 active:bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg focus:shadow-outline">
         Se alla våra böcker
       </a>
     </div>

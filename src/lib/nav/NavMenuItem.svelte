@@ -18,8 +18,8 @@
   }
 </script>
 
-<li class="border-t border-gray-700" transition:fade>
-  <div class="flex">
+<li class="border-b border-gray-700">
+  <div class="flex" class:open>
     <a class="flex-grow py-4" {href} on:click={onClick}>
       {name}
     </a>
@@ -27,11 +27,19 @@
       <ExpandToggle bind:open />
     {/if}
   </div>
-  {#if children && open}
-    <ul class="list-none border-l-4 border-argasso-700 m-0 pl-3.5 p-0 " class:open transition:slide>
-      {#each children as child}
-        <svelte:self menuItem={child} />
-      {/each}
-    </ul>
+  {#if children.length && open}
+    <div class="border-t border-gray-700" transition:fade>
+      <ul class="list-none border-l-4 border-l-argasso-700 m-0 pl-3.5 p-0" transition:slide>
+        {#each children as child}
+          <svelte:self menuItem={child} />
+        {/each}
+      </ul>
+    </div>
   {/if}
 </li>
+
+<style>
+  li:last-child {
+    border: none;
+  }
+</style>

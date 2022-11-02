@@ -4,6 +4,8 @@
   import Image from './Image.svelte'
 
   export let bookThumbPromo: BookThumbPromo
+  $: categories = bookThumbPromo.categories || []
+  $: generalDetails = bookThumbPromo.generalDetails || {}
 </script>
 
 <div class="flex flex-row items-start">
@@ -27,13 +29,13 @@
     <h3 class="my-0"><Link href={bookThumbPromo.href}>{bookThumbPromo.title}</Link></h3>
     <p class="leading-normal mb-4 line-clamp-6">{bookThumbPromo.text}</p>
     <p>
-      {#each bookThumbPromo.categories as c (c.href)}
+      {#each categories as c (c.href)}
         <span
-          class="text-xs inline-block py-1 px-2 uppercase rounded-full text-argasso-700 bg-argasso-100 uppercase last:mr-0 mr-1">
+          class="text-xs inline-block py-1 px-2 text-center rounded-full text-slate-700 bg-stone-200 uppercase last:mr-0 mr-1">
           <a href={c.href}>{c.name}</a>
         </span>
       {/each}
     </p>
-    <p class="text-xs text-gray-500 uppercase">{bookThumbPromo.generalDetails.publishMonth}</p>
+    <p class="text-xs text-gray-500 uppercase">{generalDetails.publishMonth}</p>
   </div>
 </div>

@@ -7,12 +7,16 @@
 </script>
 
 <button
-  class="flex-0 p-3"
+  class="flex p-3"
   on:click|stopPropagation={onClick}
   aria-expanded={open}
   aria-label={ariaLabel}>
-  <span class:open class="expand-toggle-left" />
-  <span class:open class="expand-toggle-right" />
+  <div class="expand-toggle flex-1">
+    <span class:open class="expand-toggle-left" />
+  </div>
+  <div class="expand-toggle flex-1">
+    <span class:open class="expand-toggle-right" />
+  </div>
 </button>
 
 <style lang="scss">
@@ -52,6 +56,10 @@
     }
   }
 
+  .expand-toggle {
+    overflow: hidden;
+  }
+
   .expand-toggle-left,
   .expand-toggle-right {
     display: inline-block;
@@ -59,12 +67,11 @@
     background: #fff;
     height: 3px;
     width: 12px;
-    margin-bottom: 3px;
     align-items: stretch;
   }
 
   .expand-toggle-left {
-    margin-right: -4px;
+    margin-right: -3px;
     animation-timing-function: linear;
     animation: left-close 0.4s forwards;
     &.open {
@@ -73,7 +80,7 @@
   }
 
   .expand-toggle-right {
-    margin-left: -4px;
+    margin-left: -3px;
     animation-timing-function: linear;
     animation: right-close 0.4s forwards;
     &.open {

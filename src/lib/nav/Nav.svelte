@@ -57,10 +57,12 @@
     class="absolute z-10 text-white bg-slate-800 w-screen h-screen"
     transition:fly={{ x: 300, duration: 300 }}>
     <div class="relative w-full h-full overflow-auto">
-      <ul class="container list-none h-full" class:open={$isMenuOpen}>
-        {#each menuItems as menuItem}
-          <NavMenuItem {menuItem} />
-        {/each}
+      <ul class="container list-none">
+        <div class="border-b border-gray-700">
+          {#each menuItems as menuItem}
+            <NavMenuItem {menuItem} />
+          {/each}
+        </div>
       </ul>
     </div>
   </div>
