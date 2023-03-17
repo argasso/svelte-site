@@ -2,6 +2,7 @@
   import type { BookThumbPromo } from 'src/types'
   import Link from './components/Link.svelte'
   import Image from './Image.svelte'
+  import Pill from './Pill.svelte'
 
   export let bookThumbPromo: BookThumbPromo
   $: categories = bookThumbPromo.categories || []
@@ -29,11 +30,8 @@
     <h3 class="my-0"><Link href={bookThumbPromo.href}>{bookThumbPromo.title}</Link></h3>
     <p class="leading-normal mb-4 line-clamp-6">{bookThumbPromo.text}</p>
     <p>
-      {#each categories as c (c.href)}
-        <span
-          class="text-xs inline-block py-1 px-2 text-center rounded-full text-slate-700 bg-stone-200 uppercase last:mr-0 mr-1">
-          <a href={c.href}>{c.name}</a>
-        </span>
+      {#each categories as category (category.href)}
+        <Pill {category} />
       {/each}
     </p>
     <p class="text-xs text-gray-500 uppercase">{generalDetails.publishMonth}</p>

@@ -27,6 +27,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        xs: '420px',
+      },
       colors: {
         argasso2: {
           DEFAULT: '#660028',

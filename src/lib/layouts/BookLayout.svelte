@@ -24,7 +24,7 @@
   <Breadcrumb crumbs={breadcrumbs} />
 
   <section class="text-gray-700 body-font overflow-hidden py">
-    <div class="mx-auto flex flex-wrap mt-10">
+    <div class="mx-auto flex flex-wrap my-10">
       <div class="w-1/3 sm:w-1/3">
         {#if image}
           <Image
@@ -89,21 +89,34 @@
             .join(', ')}
         </h3>
 
-        <slot />
-
-        <div class="flex mx-1 my-5">
-          <a
-            href={`https://www.bokfynd.nu/${isbn}`}
-            target="_blank"
-            class="flex ml-auto bg-argasso-600 hover:bg-argasso-500 active:bg-argasso-700 text-white rounded-full py-4 px-12 shadow-lg focus:shadow-outline">
-            Köp via Bokfynd
-          </a>
+        <div class="hidden sm:block">
+          <slot />
+          <div class="flex mx-1 my-5">
+            <a
+              href={`https://www.bokfynd.nu/${isbn}`}
+              target="_blank"
+              class="flex ml-auto bg-argasso-600 hover:bg-argasso-500 active:bg-argasso-700 text-white rounded-full py-4 px-12 shadow-lg focus:shadow-outline">
+              Köp via Bokfynd
+            </a>
+          </div>
         </div>
+
         <div class="hidden lg:block">
           <BookDetails
             {categories}
             details={{ generalDetails, audioDetails, translationDetails }} />
         </div>
+      </div>
+    </div>
+    <div class="sm:hidden">
+      <slot />
+      <div class="flex mx-1 my-5">
+        <a
+          href={`https://www.bokfynd.nu/${isbn}`}
+          target="_blank"
+          class="flex ml-auto bg-argasso-600 hover:bg-argasso-500 active:bg-argasso-700 text-white rounded-full py-4 px-12 shadow-lg focus:shadow-outline">
+          Köp via Bokfynd
+        </a>
       </div>
     </div>
     <div class="lg:hidden">

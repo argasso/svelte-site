@@ -10,8 +10,8 @@
       <a sveltekit:prefetch href="/">Argasso</a>
     </li>
     {#each crumbs as { href, name }}
-      <li class="breadcrumb-items">
-        <a class="first-letter:uppercase inline-block" sveltekit:prefetch {href}>{name}</a>
+      <li class="breadcrumb-items text-ellipsis overflow-hidden">
+        <a class="first-letter:uppercase whitespace-nowrap " sveltekit:prefetch {href}>{name}</a>
       </li>
     {/each}
   </ol>
@@ -20,6 +20,6 @@
 <style>
   li + li:before {
     content: '/';
-    padding: 0 0.5rem;
+    padding: 0 0.3rem;
   }
 </style>

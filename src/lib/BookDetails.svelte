@@ -4,6 +4,7 @@
   import { isFieldMeta } from './utils/util'
   import type { Book } from 'src/types/netlify-types'
   import type { LinkInfo } from 'src/types'
+  import Pill from './Pill.svelte'
 
   export let details: Pick<Book, 'generalDetails' | 'translationDetails' | 'audioDetails'>
   export let categories: LinkInfo[] = []
@@ -38,23 +39,22 @@
   <div class="border-t border-gray-200">
     <dl>
       <div class="bg-white px-5 py-3 grid grid-cols-3 gap-4">
-        <dt class="text-sm font-medium text-gray-500">Ingår i kategori</dt>
-        <dd class="col-span-2 mt-1 text-sm text-gray-900 sm:mt-0">
-          {#each categories as c}
-            <span
-              class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-argasso-700 bg-argasso-100 last:mr-0 mr-1">
-              <a href={c.href}>{c.name}</a>
-            </span>
+        <dt class="text-sm font-medium text-gray-500 overflow-hidden text-ellipsis">
+          Ingår i kategori
+        </dt>
+        <dd class="col-span-2 text-sm text-gray-900">
+          {#each categories as category}
+            <Pill {category} />
           {/each}
         </dd>
       </div>
       {#each rows as [key, value], index}
         <div
           class={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} px-5 py-3 grid grid-cols-3 gap-4`}>
-          <dt class="text-sm font-medium text-gray-500">
+          <dt class="text-sm font-medium text-gray-500 overflow-hidden text-ellipsis">
             {labels[key]}
           </dt>
-          <dd class="col-span-2 mt-1 text-sm text-gray-900 sm:mt-0">
+          <dd class="col-span-2 text-sm text-gray-900">
             {value}
           </dd>
         </div>

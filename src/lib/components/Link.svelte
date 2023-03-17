@@ -12,7 +12,7 @@
 </script>
 
 {#if href}
-  <a {href} class="animate-link {className}" class:active>
+  <a {href} class="hover:underline {className}" class:active>
     <slot />
   </a>
 {:else}

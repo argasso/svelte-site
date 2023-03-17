@@ -151,14 +151,14 @@ function createBookStore(): Readable<BookStoreValue> & BookStoreApi {
 }
 
 function addExpandedFilter(path: string, query: URLSearchParams) {
-  const categories = path.split('/').filter((c) => c)
-  if (categories.length > 1) {
-    categories
-      .map((_c, index) => categories.slice(0, index + 1).join('/'))
-      .forEach((c) => {
-        if (c !== 'boecker') {
-          query.append('category', c)
-        }
-      })
+  if (path.startsWith('/boecker/')) {
+    const categories1 = path
+      .split('/')
+      .filter((c) => c)
+      .map((_c, index, array) => array.slice(0, index + 1).join('/'))
+    categories1.shift()
+    categories1.forEach((c) => {
+      query.append('category', c)
+    })
   }
 }
